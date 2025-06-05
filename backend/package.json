@@ -8,7 +8,7 @@
     "db:generate": "bunx --bun drizzle-kit generate",
     "db:migrate": "bunx --bun drizzle-kit migrate",
     "start": "bun --watch index.ts",
-    "build": "bun build --compile index.ts --minify --outfile build/app"
+    "build": "bun build --compile index.ts --minify --outfile build/app; bun scripts/build.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@fastify/accepts": "^5.0.2",
+    "@fastify/autoload": "^6.3.1",
     "@fastify/caching": "^9.0.3",
     "@fastify/cors": "^11.0.1",
     "@fastify/helmet": "^13.0.1",
@@ -36,11 +37,15 @@
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.44.2",
     "fastify": "^5.3.3",
+    "fastify-blipp": "^4.0.0",
+    "fastify-plugin": "^5.0.1",
+    "is-docker": "^3.0.0",
     "joi": "^17.13.3",
     "knex": "^3.1.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.14.1",
     "pino": "^9.7.0",
-    "prisma": "^6.9.0"
+    "prisma": "^6.9.0",
+    "ts-node": "^10.9.2"
   }
 }
