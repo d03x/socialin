@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "db:push": "bunx --bun drizzle-kit push",
+    "db:generate": "bunx --bun drizzle-kit generate",
+    "db:migrate": "bunx --bun drizzle-kit migrate",
+    "start": "bun --watch index.ts",
+    "build": "bun build --compile index.ts --minify --outfile build/app"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/ws": "^8.18.1",
+    "drizzle-kit": "^0.31.1",
+    "tsx": "^4.19.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@fastify/accepts": "^5.0.2",
+    "@fastify/caching": "^9.0.3",
+    "@fastify/cors": "^11.0.1",
+    "@fastify/helmet": "^13.0.1",
+    "@fastify/jwt": "^9.1.0",
+    "@fastify/mysql": "^5.0.2",
+    "@fastify/static": "^8.2.0",
+    "@fastify/websocket": "^11.1.0",
+    "@joggr/fastify-prisma": "^6.0.0",
+    "@prisma/client": "^6.9.0",
+    "@types/knex": "^0.16.1",
+    "@types/node": "^22.15.29",
+    "add": "^2.0.6",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.44.2",
+    "fastify": "^5.3.3",
+    "joi": "^17.13.3",
+    "knex": "^3.1.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.1",
+    "pino": "^9.7.0",
+    "prisma": "^6.9.0"
+  }
+}
