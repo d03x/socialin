@@ -1,21 +1,25 @@
-import Fastify, { type FastifyInstance } from "fastify";
+import Fastify, { fastify, type FastifyInstance } from "fastify";
 import fastifyCaching from "@fastify/caching";
 import fastifyAccepts from "@fastify/accepts";
 import fastifyCors from "@fastify/cors";
 import fastifyStatic from "@fastify/static";
-import { join } from "path";
+import path, { join } from "path";
 import fastifyHelmet from "@fastify/helmet";
 import fastifyJwt from "@fastify/jwt";
 import fastifyWebsocket from "@fastify/websocket";
 import route from "@/routes/routes";
 import loadConfig from "@/config/env.config";
+import pino from "pino";
 await loadConfig();
 const PORT = Number(process.env.APP_PORT);
 const HOST = String(process.env.APP_HOST);
 
 const createServer = async () => {
     const server = Fastify({
-        logger: process.env.HTTP_LOGGER
+        logger: {
+            level: process.env.LOG_LEVEL,
+            file: path.join(__dirname, "app.log")
+        }
     })
     server.register(fastifyWebsocket);
     server.register(fastifyAccepts)
@@ -61,9 +65,14 @@ const createServer = async () => {
         await server.listen({
             host: HOST,
             port: PORT,
+        }, (err, address) => {
+            if (err) {
+                server.log.error(err);
+                console.error(err);
+                process.exit(1);
+            }
+            console.log(`Server listening at ${address}`)
         });
-        console.log(`Listen ${HOST}:${PORT}`);
-
     } catch (e) {
         server.log.error(e);
         process.exit(1);

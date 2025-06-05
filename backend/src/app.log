@@ -1,0 +1,5 @@
+{"level":40,"time":1749119854238,"pid":185856,"hostname":"d03x-arul","msg":"\"root\" path \"/media/d03x/Local Disk/programing/projects/socialin/backend/src/storage\" must exist"}
+{"level":30,"time":1749119854284,"pid":185856,"hostname":"d03x-arul","msg":"Server listening at http://127.0.0.1:5000"}
+{"level":30,"time":1749119854284,"pid":185856,"hostname":"d03x-arul","msg":"Server listening at http://192.168.43.50:5000"}
+{"level":30,"time":1749119864169,"pid":185856,"hostname":"d03x-arul","reqId":"req-1","req":{"method":"GET","url":"/api/auth/2","host":"127.0.0.1:5000","remoteAddress":"127.0.0.1","remotePort":53692},"msg":"incoming request"}
+{"level":30,"time":1749119864200,"pid":185856,"hostname":"d03x-arul","reqId":"req-1","res":{"statusCode":404},"responseTime":29.5433009999997,"msg":"request completed"}
